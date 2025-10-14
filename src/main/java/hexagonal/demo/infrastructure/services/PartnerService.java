@@ -1,8 +1,8 @@
-package hexagonal.demo.services;
+package hexagonal.demo.infrastructure.services;
 
 
-import hexagonal.demo.models.Partner;
-import hexagonal.demo.repositories.PartnerRepository;
+import hexagonal.demo.infrastructure.models.Partner;
+import hexagonal.demo.infrastructure.repositories.PartnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

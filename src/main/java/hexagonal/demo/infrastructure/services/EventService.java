@@ -1,9 +1,9 @@
-package hexagonal.demo.services;
+package hexagonal.demo.infrastructure.services;
 
-import hexagonal.demo.models.Event;
-import hexagonal.demo.models.Ticket;
-import hexagonal.demo.repositories.EventRepository;
-import hexagonal.demo.repositories.TicketRepository;
+import hexagonal.demo.infrastructure.models.Event;
+import hexagonal.demo.infrastructure.models.Ticket;
+import hexagonal.demo.infrastructure.repositories.EventRepository;
+import hexagonal.demo.infrastructure.repositories.TicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

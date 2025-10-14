@@ -1,9 +1,9 @@
-package hexagonal.demo.controllers;
+package hexagonal.demo.infrastructure.controllers;
 
 import hexagonal.demo.application.usecases.exceptions.ValidationException;
 import hexagonal.demo.application.usecases.event.CreateEventUseCase;
 import hexagonal.demo.application.usecases.event.SubscribeCustomerToEventUseCase;  
-import hexagonal.demo.dtos.SubscribeDTO;
+import hexagonal.demo.infrastructure.dtos.SubscribeDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;

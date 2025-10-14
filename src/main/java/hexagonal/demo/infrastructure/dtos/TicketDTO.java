@@ -1,8 +1,8 @@
-package hexagonal.demo.dtos;
+package hexagonal.demo.infrastructure.dtos;
 
 
-import hexagonal.demo.models.Ticket;
-import hexagonal.demo.models.TicketStatus;
+import hexagonal.demo.infrastructure.models.Ticket;
+import hexagonal.demo.infrastructure.models.TicketStatus;
 
 import java.time.Instant;
 

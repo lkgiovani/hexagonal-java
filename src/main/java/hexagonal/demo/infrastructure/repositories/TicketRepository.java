@@ -1,7 +1,7 @@
-package hexagonal.demo.repositories;
+package hexagonal.demo.infrastructure.repositories;    
 
 
-import hexagonal.demo.models.Ticket;
+import hexagonal.demo.infrastructure.models.Ticket;    
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

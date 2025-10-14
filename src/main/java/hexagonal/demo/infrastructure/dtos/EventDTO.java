@@ -1,8 +1,8 @@
-package hexagonal.demo.dtos;
+package hexagonal.demo.infrastructure.dtos;
 
 
 
-import hexagonal.demo.models.Event;
+import hexagonal.demo.infrastructure.models.Event;
 
 import java.time.format.DateTimeFormatter;
 

@@ -1,8 +1,8 @@
-package hexagonal.demo.graphql;
+package hexagonal.demo.infrastructure.graphql;
 
 import hexagonal.demo.application.usecases.partner.CreatePartnerUseCase;
 import hexagonal.demo.application.usecases.partner.GetPartnerByIdUseCase;
-import hexagonal.demo.dtos.NewPartnerDTO;
+import hexagonal.demo.infrastructure.dtos.NewPartnerDTO;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;

@@ -1,4 +1,4 @@
-package hexagonal.demo.models;
+package hexagonal.demo.infrastructure.models;
 
 import jakarta.persistence.*;
 

@@ -1,12 +1,12 @@
-package hexagonal.demo.graphql;
+package hexagonal.demo.infrastructure.graphql;
 
 import hexagonal.demo.application.usecases.customer.CreateCustomerUseCase;
 import hexagonal.demo.application.usecases.customer.GetCustomerByIdUseCase;
-import hexagonal.demo.dtos.CustomerDTO;
-import hexagonal.demo.models.Customer;
-import hexagonal.demo.services.CustomerService;
+import hexagonal.demo.infrastructure.dtos.NewCustomerDTO;
+import hexagonal.demo.infrastructure.services.CustomerService;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
 
 import java.util.Objects;

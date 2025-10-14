@@ -1,15 +1,17 @@
-package hexagonal.demo.models;
+package hexagonal.demo.infrastructure.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.util.Objects;
+
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
-@Table(name = "partners")
-public class Partner {
+@Table(name = "customers")
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -17,17 +19,17 @@ public class Partner {
 
     private String name;
 
-    private String cnpj;
+    private String cpf;
 
     private String email;
 
-    public Partner() {
+    public Customer() {
     }
 
-    public Partner(Long id, String name, String cnpj, String email) {
+    public Customer(Long id, String name, String cpf, String email) {
         this.id = id;
         this.name = name;
-        this.cnpj = cnpj;
+        this.cpf = cpf;
         this.email = email;
     }
 
@@ -47,12 +49,12 @@ public class Partner {
         this.name = name;
     }
 
-    public String getCnpj() {
-        return cnpj;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getEmail() {
@@ -61,5 +63,18 @@ public class Partner {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return Objects.equals(id, customer.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

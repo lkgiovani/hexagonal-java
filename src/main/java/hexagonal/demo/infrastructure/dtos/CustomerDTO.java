@@ -1,7 +1,7 @@
-package hexagonal.demo.dtos;
+package hexagonal.demo.infrastructure.dtos;
 
 
-import hexagonal.demo.models.Customer;
+import hexagonal.demo.infrastructure.models.Customer;
 
 public class CustomerDTO {
     private Long id;

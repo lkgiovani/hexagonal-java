@@ -1,7 +1,7 @@
-package hexagonal.demo.repositories;
+package hexagonal.demo.infrastructure.repositories; 
 
 
-import hexagonal.demo.models.Customer;
+import hexagonal.demo.infrastructure.models.Customer;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

@@ -1,7 +1,7 @@
-package hexagonal.demo.dtos;
+package hexagonal.demo.infrastructure.dtos;
 
 
-import hexagonal.demo.models.Partner;
+import hexagonal.demo.infrastructure.models.Partner;
 
 public class PartnerDTO {
     private Long id;

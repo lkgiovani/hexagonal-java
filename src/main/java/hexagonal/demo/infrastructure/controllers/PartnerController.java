@@ -1,9 +1,9 @@
-package hexagonal.demo.controllers;
+package hexagonal.demo.infrastructure.controllers;
 
 import hexagonal.demo.application.usecases.exceptions.ValidationException;
 import hexagonal.demo.application.usecases.partner.CreatePartnerUseCase;
 import hexagonal.demo.application.usecases.partner.GetPartnerByIdUseCase;   
-import hexagonal.demo.dtos.NewPartnerDTO;
+import hexagonal.demo.infrastructure.dtos.NewPartnerDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

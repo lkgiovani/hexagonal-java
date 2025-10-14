@@ -1,11 +1,11 @@
-package hexagonal.demo.controllers;
+package hexagonal.demo.infrastructure.controllers;
 
 
 import hexagonal.demo.application.usecases.customer.CreateCustomerUseCase;
 import hexagonal.demo.application.usecases.exceptions.ValidationException;
-import hexagonal.demo.dtos.CustomerDTO;
-import hexagonal.demo.models.Customer;
-import hexagonal.demo.services.CustomerService;
+import hexagonal.demo.infrastructure.dtos.CustomerDTO;
+import hexagonal.demo.infrastructure.models.Customer;
+import hexagonal.demo.infrastructure.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

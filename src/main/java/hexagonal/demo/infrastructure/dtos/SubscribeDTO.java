@@ -1,4 +1,4 @@
-package hexagonal.demo.dtos;
+package hexagonal.demo.infrastructure.dtos;
 
 public class SubscribeDTO {
 
