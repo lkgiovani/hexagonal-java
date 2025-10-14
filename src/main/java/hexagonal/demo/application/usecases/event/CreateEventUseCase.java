@@ -1,11 +1,11 @@
 package hexagonal.demo.application.usecases.event;
 
 import hexagonal.demo.application.usecases.UseCase;
-import hexagonal.demo.application.domain.event.Event;
-import hexagonal.demo.application.domain.partner.PartnerId;
+import hexagonal.demo.infrastructure.models.Event;
+import hexagonal.demo.infrastructure.models.PartnerId;
 import hexagonal.demo.application.usecases.exceptions.ValidationException;   
-import hexagonal.demo.repositories.EventRepository;
-import hexagonal.demo.repositories.PartnerRepository;
+import hexagonal.demo.infrastructure.repositories.EventRepository;
+import hexagonal.demo.infrastructure.repositories.PartnerRepository;
 
 import java.util.Objects;
 

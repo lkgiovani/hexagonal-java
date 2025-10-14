@@ -2,8 +2,8 @@ package hexagonal.demo.application.usecases.customer;
 
 import hexagonal.demo.application.usecases.UseCase;
 import hexagonal.demo.application.usecases.exceptions.ValidationException;
-import hexagonal.demo.models.Customer;
-import hexagonal.demo.repositories.CustomerRepository;
+import hexagonal.demo.infrastructure.models.Customer;  
+import hexagonal.demo.infrastructure.repositories.CustomerRepository;
 
 public class CreateCustomerUseCase
         extends UseCase<CreateCustomerUseCase.Input, CreateCustomerUseCase.Output> {

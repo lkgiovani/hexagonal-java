@@ -1,8 +1,7 @@
 package hexagonal.demo.application.usecases.partner;
 
 import hexagonal.demo.application.usecases.UseCase;
-import hexagonal.demo.application.domain.partner.PartnerId;
-import hexagonal.demo.repositories.PartnerRepository;
+import hexagonal.demo.infrastructure.repositories.PartnerRepository;
 
 import java.util.Objects;
 import java.util.Optional;

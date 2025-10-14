@@ -1,11 +1,10 @@
 package hexagonal.demo.application.usecases.partner;
 
-import hexagonal.demo.application.domain.person.Cnpj;
-import hexagonal.demo.application.domain.person.Email;  
-import hexagonal.demo.application.usecases.UseCase;
-import hexagonal.demo.application.domain.partner.Partner;
+
+import hexagonal.demo.application.usecases.UseCase; 
+import hexagonal.demo.infrastructure.models.Partner;
 import hexagonal.demo.application.usecases.exceptions.ValidationException;
-import hexagonal.demo.repositories.PartnerRepository;
+import hexagonal.demo.infrastructure.repositories.PartnerRepository;
 
 import java.util.Objects;
 

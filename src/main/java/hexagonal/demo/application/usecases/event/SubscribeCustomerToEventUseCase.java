@@ -1,10 +1,10 @@
 package hexagonal.demo.application.usecases.event;
 
 import hexagonal.demo.application.usecases.UseCase;
-import hexagonal.demo.models.Ticket;
-import hexagonal.demo.repositories.CustomerRepository;
-import hexagonal.demo.repositories.EventRepository;
-import hexagonal.demo.repositories.TicketRepository;
+import hexagonal.demo.infrastructure.models.Ticket;
+import hexagonal.demo.infrastructure.repositories.CustomerRepository;  
+import hexagonal.demo.infrastructure.repositories.EventRepository;
+import hexagonal.demo.infrastructure.repositories.TicketRepository;
 
 import java.time.Instant;
 import java.util.Objects;
