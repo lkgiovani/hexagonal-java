@@ -1,6 +1,8 @@
 package hexagonal.demo.controllers;
 
 
+import hexagonal.demo.application.usecases.customer.CreateCustomerUseCase;
+import hexagonal.demo.application.usecases.exceptions.ValidationException;
 import hexagonal.demo.dtos.CustomerDTO;
 import hexagonal.demo.models.Customer;
 import hexagonal.demo.services.CustomerService;
@@ -21,7 +23,7 @@ public class CustomerController {
     public ResponseEntity<?> create(@RequestBody NewCustomerDTO dto) {
         try {
             final var output =
-                    CreateCustomerUseCase.execute(new CreateCustomerUseCase.Input(dto.cpf(), dto.email(), dto.name()));
+                    CreateCustomerUseCase.execute(new CreateCustomerUseCase(null).Input(dto.cpf(), dto.email(), dto.name()));
 
             return ResponseEntity.created(URI.create("/customers/" + output.id())).body(output);
         } catch (ValidationException ex) {

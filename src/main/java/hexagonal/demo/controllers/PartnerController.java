@@ -1,47 +1,47 @@
 package hexagonal.demo.controllers;
 
-import hexagonal.demo.dtos.PartnerDTO;
-import hexagonal.demo.models.Partner;
-import org.springframework.beans.factory.annotation.Autowired;
+import hexagonal.demo.application.usecases.exceptions.ValidationException;
+import hexagonal.demo.application.usecases.partner.CreatePartnerUseCase;
+import hexagonal.demo.application.usecases.partner.GetPartnerByIdUseCase;   
+import hexagonal.demo.dtos.NewPartnerDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.Objects;
 
+// Adapter
 @RestController
 @RequestMapping(value = "partners")
 public class PartnerController {
 
-    @Autowired
-    private hexagonal.demo.services.PartnerService partnerService;
+    private final CreatePartnerUseCase createPartnerUseCase;
+    private final GetPartnerByIdUseCase getPartnerByIdUseCase;
+
+    public PartnerController(
+            final CreatePartnerUseCase createPartnerUseCase,
+            final GetPartnerByIdUseCase getPartnerByIdUseCase
+    ) {
+        this.createPartnerUseCase = Objects.requireNonNull(createPartnerUseCase);
+        this.getPartnerByIdUseCase = Objects.requireNonNull(getPartnerByIdUseCase);
+    }
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody PartnerDTO dto) {
-        if (partnerService.findByCnpj(dto.getCnpj()).isPresent()) {
-            return ResponseEntity.unprocessableEntity().body("Partner already exists");
+    public ResponseEntity<?> create(@RequestBody NewPartnerDTO dto) {
+        try {
+            final var output =
+                    createPartnerUseCase.execute(new CreatePartnerUseCase.Input(dto.cnpj(), dto.email(), dto.name()));
+
+            return ResponseEntity.created(URI.create("/partners/" + output.id())).body(output);
+        } catch (ValidationException ex) {
+            return ResponseEntity.unprocessableEntity().body(ex.getMessage());
         }
-        if (partnerService.findByEmail(dto.getEmail()).isPresent()) {
-            return ResponseEntity.unprocessableEntity().body("Partner already exists");
-        }
-
-        var partner = new Partner();
-        partner.setName(dto.getName());
-        partner.setCnpj(dto.getCnpj());
-        partner.setEmail(dto.getEmail());
-
-        partner = partnerService.save(partner);
-
-        return ResponseEntity.created(URI.create("/partners/" + partner.getId())).body(partner);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> get(@PathVariable Long id) {
-        var partner = partnerService.findById(id);
-        if (partner.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-
-        return ResponseEntity.ok(partner.get());
+    public ResponseEntity<?> get(@PathVariable String id) {
+        return getPartnerByIdUseCase.execute(new GetPartnerByIdUseCase.Input(id))
+                .map(ResponseEntity::ok)
+                .orElseGet(ResponseEntity.notFound()::build);
     }
-
 }
