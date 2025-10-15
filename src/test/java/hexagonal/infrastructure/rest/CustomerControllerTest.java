@@ -3,7 +3,7 @@ package hexagonal.infrastructure.rest;
 import hexagonal.application.usecases.customer.CreateCustomerUseCase;
 import hexagonal.application.usecases.customer.GetCustomerByIdUseCase;
 import hexagonal.infrastructure.dtos.NewCustomerDTO;
-import hexagonal.infrastructure.db.repositories.CustomerJpaRepository;
+import hexagonal.infrastructure.db.repositories.CustomerDbRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -30,7 +30,7 @@ public class CustomerControllerTest {
     private ObjectMapper mapper;
 
     @Autowired
-    private CustomerJpaRepository customerRepository;
+    private CustomerDbRepository customerRepository;
 
     @BeforeEach
     void setUp() {

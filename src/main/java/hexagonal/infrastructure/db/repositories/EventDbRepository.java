@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;
 
-public interface EventJpaRepository extends CrudRepository<EventEntity, UUID> { 
+public interface EventDbRepository extends CrudRepository<EventEntity, UUID> {
 
 }

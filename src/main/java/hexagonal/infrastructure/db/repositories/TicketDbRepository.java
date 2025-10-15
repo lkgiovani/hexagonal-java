@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;
 
-public interface TicketJpaRepository extends CrudRepository<TicketEntity, UUID> {
+public interface TicketDbRepository extends CrudRepository<TicketEntity, UUID> {
 
 }

@@ -6,7 +6,7 @@ import hexagonal.application.domain.person.Cnpj;
 import hexagonal.application.domain.person.Email;
 import hexagonal.application.repositories.PartnerRepository;
 import hexagonal.infrastructure.db.entities.PartnerEntity;
-import hexagonal.infrastructure.db.repositories.PartnerJpaRepository;
+import hexagonal.infrastructure.db.repositories.PartnerDbaRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,9 +18,9 @@ import java.util.UUID;
 @Component
 public class PartnerDatabaseRepository implements PartnerRepository {
 
-    private final PartnerJpaRepository partnerJpaRepository;
+    private final PartnerDbaRepository partnerJpaRepository;
 
-    public PartnerDatabaseRepository(final PartnerJpaRepository partnerJpaRepository) {
+    public PartnerDatabaseRepository(final PartnerDbaRepository partnerJpaRepository) {
         this.partnerJpaRepository = Objects.requireNonNull(partnerJpaRepository);
     }
 

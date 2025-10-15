@@ -4,7 +4,7 @@ import hexagonal.application.domain.event.ticket.Ticket;
 import hexagonal.application.domain.event.ticket.TicketId;
 import hexagonal.application.repositories.TicketRepository;
 import hexagonal.infrastructure.db.entities.TicketEntity;
-import hexagonal.infrastructure.db.repositories.TicketJpaRepository;
+import hexagonal.infrastructure.db.repositories.TicketDbRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,9 +16,9 @@ import java.util.UUID;
 @Component
 public class TicketDatabaseRepository implements TicketRepository {
 
-    private final TicketJpaRepository ticketJpaRepository;
+    private final TicketDbRepository ticketJpaRepository;
 
-    public TicketDatabaseRepository(final TicketJpaRepository ticketJpaRepository) {
+    public TicketDatabaseRepository(final TicketDbRepository ticketJpaRepository) {
         this.ticketJpaRepository = Objects.requireNonNull(ticketJpaRepository);
     }
 

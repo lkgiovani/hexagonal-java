@@ -4,7 +4,7 @@ import hexagonal.application.domain.event.Event;
 import hexagonal.application.domain.event.EventId;
 import hexagonal.application.repositories.EventRepository;
 import hexagonal.infrastructure.db.entities.EventEntity;
-import hexagonal.infrastructure.db.repositories.EventJpaRepository;
+import hexagonal.infrastructure.db.repositories.EventDbRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,9 +16,9 @@ import java.util.UUID;
 @Component
 public class EventDatabaseRepository implements EventRepository {
 
-    private final EventJpaRepository eventJpaRepository;
+    private final EventDbRepository eventJpaRepository;
 
-    public EventDatabaseRepository(final EventJpaRepository EventJpaRepository) {
+    public EventDatabaseRepository(final EventDbRepository EventJpaRepository) {
         this.eventJpaRepository = Objects.requireNonNull(EventJpaRepository);
     }
 

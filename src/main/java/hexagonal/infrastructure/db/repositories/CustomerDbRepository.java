@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface CustomerJpaRepository extends CrudRepository<CustomerEntity, UUID> {
+public interface CustomerDbRepository extends CrudRepository<CustomerEntity, UUID> {
 
     Optional<CustomerEntity> findByCpf(String cpf);
 

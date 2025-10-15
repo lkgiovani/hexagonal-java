@@ -6,7 +6,7 @@ import hexagonal.application.domain.person.Cpf;
 import hexagonal.application.domain.person.Email;
 import hexagonal.application.repositories.CustomerRepository;
 import hexagonal.infrastructure.db.entities.CustomerEntity;
-import hexagonal.infrastructure.db.repositories.CustomerJpaRepository;
+import hexagonal.infrastructure.db.repositories.CustomerDbRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,9 +18,9 @@ import java.util.UUID;
 @Component
 public class CustomerDatabaseRepository implements CustomerRepository {
 
-    private final CustomerJpaRepository customerJpaRepository;
+    private final CustomerDbRepository customerJpaRepository;
 
-    public CustomerDatabaseRepository(final CustomerJpaRepository customerJpaRepository) {
+    public CustomerDatabaseRepository(final CustomerDbRepository customerJpaRepository) {
         this.customerJpaRepository = Objects.requireNonNull(customerJpaRepository);
     }
 
