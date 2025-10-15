@@ -18,49 +18,49 @@ import java.util.UUID;
 @Component
 public class PartnerDatabaseRepository implements PartnerRepository {
 
-    private final PartnerDbaRepository partnerJpaRepository;
+    private final PartnerDbaRepository partnerDbRepository;
 
-    public PartnerDatabaseRepository(final PartnerDbaRepository partnerJpaRepository) {
-        this.partnerJpaRepository = Objects.requireNonNull(partnerJpaRepository);
+    public PartnerDatabaseRepository(final PartnerDbaRepository partnerDbRepository) {
+        this.partnerDbRepository = Objects.requireNonNull(partnerDbRepository);
     }
 
     @Override
     public Optional<Partner> partnerOfId(final PartnerId anId) {
         Objects.requireNonNull(anId, "id cannot be null");
-        return this.partnerJpaRepository.findById(UUID.fromString(anId.value()))
+        return this.partnerDbRepository.findById(UUID.fromString(anId.value()))
                 .map(PartnerEntity::toPartner);
     }
 
     @Override
     public Optional<Partner> partnerOfCNPJ(final Cnpj cnpj) {
         Objects.requireNonNull(cnpj, "Cnpj cannot be null");
-        return this.partnerJpaRepository.findByCnpj(cnpj.value())
+        return this.partnerDbRepository.findByCnpj(cnpj.value())
                 .map(PartnerEntity::toPartner);
     }
 
     @Override
     public Optional<Partner> partnerOfEmail(final Email email) {
         Objects.requireNonNull(email, "Email cannot be null");
-        return this.partnerJpaRepository.findByEmail(email.value())
+        return this.partnerDbRepository.findByEmail(email.value())
                 .map(PartnerEntity::toPartner);
     }
 
     @Override
     @Transactional
     public Partner create(final Partner partner) {
-        return this.partnerJpaRepository.save(PartnerEntity.of(partner))
+        return this.partnerDbRepository.save(PartnerEntity.of(partner))
                 .toPartner();
     }
 
     @Override
     @Transactional
     public Partner update(Partner partner) {
-        return this.partnerJpaRepository.save(PartnerEntity.of(partner))
+        return this.partnerDbRepository.save(PartnerEntity.of(partner))
                 .toPartner();
     }
 
     @Override
     public void deleteAll() {
-        this.partnerJpaRepository.deleteAll();
+        this.partnerDbRepository.deleteAll();
     }
 }

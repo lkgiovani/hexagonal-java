@@ -16,35 +16,35 @@ import java.util.UUID;
 @Component
 public class TicketDatabaseRepository implements TicketRepository {
 
-    private final TicketDbRepository ticketJpaRepository;
+    private final TicketDbRepository ticketDbRepository;
 
-    public TicketDatabaseRepository(final TicketDbRepository ticketJpaRepository) {
-        this.ticketJpaRepository = Objects.requireNonNull(ticketJpaRepository);
+    public TicketDatabaseRepository(final TicketDbRepository ticketDbRepository) {
+        this.ticketDbRepository = Objects.requireNonNull(ticketDbRepository);
     }
 
     @Override
     public Optional<Ticket> ticketOfId(final TicketId anId) {
         Objects.requireNonNull(anId, "id cannot be null");
-        return this.ticketJpaRepository.findById(UUID.fromString(anId.value()))
+        return this.ticketDbRepository.findById(UUID.fromString(anId.value()))
                 .map(TicketEntity::toTicket);
     }
 
     @Override
     @Transactional
     public Ticket create(final Ticket ticket) {
-        return this.ticketJpaRepository.save(TicketEntity.of(ticket))
+        return this.ticketDbRepository.save(TicketEntity.of(ticket))
                 .toTicket();
     }
 
     @Override
     @Transactional
     public Ticket update(Ticket ticket) {
-        return this.ticketJpaRepository.save(TicketEntity.of(ticket))
+        return this.ticketDbRepository.save(TicketEntity.of(ticket))
                 .toTicket();
     }
 
     @Override
     public void deleteAll() {
-        this.ticketJpaRepository.deleteAll();
+        this.ticketDbRepository.deleteAll();
     }
 }

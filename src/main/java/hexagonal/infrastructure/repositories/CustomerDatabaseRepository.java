@@ -18,49 +18,49 @@ import java.util.UUID;
 @Component
 public class CustomerDatabaseRepository implements CustomerRepository {
 
-    private final CustomerDbRepository customerJpaRepository;
+    private final CustomerDbRepository customerDbRepository;
 
-    public CustomerDatabaseRepository(final CustomerDbRepository customerJpaRepository) {
-        this.customerJpaRepository = Objects.requireNonNull(customerJpaRepository);
+    public CustomerDatabaseRepository(final CustomerDbRepository customerDbRepository) {
+        this.customerDbRepository = Objects.requireNonNull(customerDbRepository);
     }
 
     @Override
     public Optional<Customer> customerOfId(final CustomerId anId) {
         Objects.requireNonNull(anId, "id cannot be null");
-        return this.customerJpaRepository.findById(UUID.fromString(anId.value()))
+        return this.customerDbRepository.findById(UUID.fromString(anId.value()))
                 .map(CustomerEntity::toCustomer);
     }
 
     @Override
     public Optional<Customer> customerOfCPF(final Cpf cpf) {
         Objects.requireNonNull(cpf, "Cpf cannot be null");
-        return this.customerJpaRepository.findByCpf(cpf.value())
+        return this.customerDbRepository.findByCpf(cpf.value())
                 .map(CustomerEntity::toCustomer);
     }
 
     @Override
     public Optional<Customer> customerOfEmail(final Email email) {
         Objects.requireNonNull(email, "Email cannot be null");
-        return this.customerJpaRepository.findByEmail(email.value())
+        return this.customerDbRepository.findByEmail(email.value())
                 .map(CustomerEntity::toCustomer);
     }
 
     @Override
     @Transactional
     public Customer create(final Customer customer) {
-        return this.customerJpaRepository.save(CustomerEntity.of(customer))
+        return this.customerDbRepository.save(CustomerEntity.of(customer))
                 .toCustomer();
     }
 
     @Override
     @Transactional
     public Customer update(Customer customer) {
-        return this.customerJpaRepository.save(CustomerEntity.of(customer))
+        return this.customerDbRepository.save(CustomerEntity.of(customer))
                 .toCustomer();
     }
 
     @Override
     public void deleteAll() {
-        this.customerJpaRepository.deleteAll();
+        this.customerDbRepository.deleteAll();
     }
 }
