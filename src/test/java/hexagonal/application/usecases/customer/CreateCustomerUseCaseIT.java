@@ -1,9 +1,10 @@
-package hexagonal.demo.application.usecases.customer;
+package hexagonal.application.usecases.customer;
 
-import hexagonal.demo.IntegrationTest;
-import hexagonal.demo.models.Customer;
-import hexagonal.demo.application.usecases.exceptions.ValidationException;
-import hexagonal.demo.repositories.CustomerRepository;
+
+import hexagonal.IntegrationTest;
+import hexagonal.application.domain.customer.Customer;
+import hexagonal.application.exceptions.ValidationException;
+import hexagonal.application.repositories.CustomerRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -24,7 +25,7 @@ public class CreateCustomerUseCaseIT extends IntegrationTest {
     }
 
     @Test
-    @DisplayName("Must create a customer")
+    @DisplayName("Deve criar um cliente")
     public void testCreateCustomer() {
         // given
         final var expectedCPF = "123.456.789-01";
@@ -44,7 +45,7 @@ public class CreateCustomerUseCaseIT extends IntegrationTest {
     }
 
     @Test
-    @DisplayName("You should not register a customer with a duplicate CPF")
+    @DisplayName("Não deve cadastrar um cliente com CPF duplicado")
     public void testCreateWithDuplicatedCPFShouldFail() throws Exception {
         // given
         final var expectedCPF = "123.456.789-01";
@@ -64,7 +65,7 @@ public class CreateCustomerUseCaseIT extends IntegrationTest {
     }
 
     @Test
-    @DisplayName("You should not register a customer with a duplicate email")
+    @DisplayName("Não deve cadastrar um cliente com e-mail duplicado")
     public void testCreateWithDuplicatedEmailShouldFail() throws Exception {
         // given
         final var expectedCPF = "123.456.789-01";

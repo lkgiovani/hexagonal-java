@@ -1,8 +1,8 @@
-package hexagonal.demo.application.usecases.customer;   
+package hexagonal.application.usecases.customer;
 
-import hexagonal.demo.repositories.InMemoryCustomerRepository;
-import hexagonal.demo.models.Customer;
-import hexagonal.demo.application.usecases.customer.GetCustomerByIdUseCase;
+import hexagonal.application.domain.customer.Customer;
+import hexagonal.application.repository.InMemoryCustomerRepository;
+import hexagonal.application.usecases.customer.GetCustomerByIdUseCase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,7 @@ import java.util.UUID;
 class GetCustomerByIdUseCaseTest {
 
     @Test
-    @DisplayName("Must get a customer by id")
+    @DisplayName("Deve obter um cliente por id")
     public void testGetById() {
         // given
         final var expectedCPF = "123.456.789-01";
@@ -40,7 +40,7 @@ class GetCustomerByIdUseCaseTest {
     }
 
     @Test
-    @DisplayName("Must return empty when trying to get a customer that does not exist by id")
+    @DisplayName("Deve obter vazio ao tentar recuperar um cliente não existente por id")
     public void testGetByIdWIthInvalidId() {
         // given
         final var expectedID = UUID.randomUUID().toString();

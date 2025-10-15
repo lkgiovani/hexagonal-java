@@ -1,8 +1,7 @@
-package hexagonal.demo.application.usecases.partner;
+package hexagonal.application.usecases.partner;
 
-import hexagonal.demo.repositories.InMemoryPartnerRepository;
-import hexagonal.demo.models.Partner;
-import hexagonal.demo.application.usecases.partner.GetPartnerByIdUseCase;
+import hexagonal.application.domain.partner.Partner;
+import hexagonal.application.repository.InMemoryPartnerRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,7 @@ import java.util.UUID;
 class GetPartnerByIdUseCaseTest {
 
     @Test
-    @DisplayName("Must get a partner by id")
+    @DisplayName("Deve obter um parceiro por id")
     public void testGetById() {
         // given
         final var expectedCNPJ = "41.536.538/0001-00";
@@ -40,7 +39,7 @@ class GetPartnerByIdUseCaseTest {
     }
 
     @Test
-    @DisplayName("Must return empty when trying to get a partner that does not exist by id")
+    @DisplayName("Deve obter vazio ao tentar recuperar um parceiro não existente por id")
     public void testGetByIdWIthInvalidId() {
         // given
         final var expectedID = UUID.randomUUID().toString();

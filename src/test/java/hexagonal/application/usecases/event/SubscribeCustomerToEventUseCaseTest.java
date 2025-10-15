@@ -1,15 +1,15 @@
-package hexagonal.demo.application.usecases.event;
+package hexagonal.application.usecases.event;
 
-import hexagonal.demo.models.Customer;
-import hexagonal.demo.models.CustomerId;
-import hexagonal.demo.models.Event;
-import hexagonal.demo.models.EventId; 
-import hexagonal.demo.models.TicketStatus;
-import hexagonal.demo.models.Partner;
-import hexagonal.demo.application.usecases.exceptions.ValidationException;
-import hexagonal.demo.repositories.InMemoryCustomerRepository;
-import hexagonal.demo.repositories.InMemoryEventRepository;
-import hexagonal.demo.repositories.InMemoryTicketRepository;
+import hexagonal.application.domain.customer.Customer;
+import hexagonal.application.domain.customer.CustomerId;
+import hexagonal.application.domain.event.Event;
+import hexagonal.application.domain.event.EventId;
+import hexagonal.application.domain.event.ticket.TicketStatus;
+import hexagonal.application.domain.partner.Partner;
+import hexagonal.application.exceptions.ValidationException;
+import hexagonal.application.repository.InMemoryCustomerRepository;
+import hexagonal.application.repository.InMemoryEventRepository;
+import hexagonal.application.repository.InMemoryTicketRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,7 @@ import org.junit.jupiter.api.Test;
 class SubscribeCustomerToEventUseCaseTest {
 
     @Test
-    @DisplayName("Must reserve a ticket for an event")
+    @DisplayName("Deve comprar um ticket de um evento")
     public void testReserveTicket() throws Exception {
         // given
         final var expectedTicketsSize = 1;
@@ -54,7 +54,7 @@ class SubscribeCustomerToEventUseCaseTest {
     }
 
     @Test
-    @DisplayName("You should not reserve a ticket for a customer that does not exist")
+    @DisplayName("Não deve comprar um ticket com um cliente não existente")
     public void testReserveTicketWithoutCustomer() throws Exception {
         // given
         final var expectedError = "Customer not found";
@@ -83,7 +83,7 @@ class SubscribeCustomerToEventUseCaseTest {
     }
 
     @Test
-    @DisplayName("You should not reserve a ticket for an event that does not exist")
+    @DisplayName("Não deve comprar um ticket de um evento que não existe")
     public void testReserveTicketWithoutEvent() throws Exception {
         // given
         final var expectedError = "Event not found";
@@ -111,7 +111,7 @@ class SubscribeCustomerToEventUseCaseTest {
     }
 
     @Test
-    @DisplayName("A same customer cannot reserve more than one ticket for an event")
+    @DisplayName("Um mesmo cliente não pode comprar mais de um ticket por evento")
     public void testReserveTicketMoreThanOnce() throws Exception {
         // given
         final var expectedError = "Email already registered";
@@ -145,7 +145,7 @@ class SubscribeCustomerToEventUseCaseTest {
     }
 
     @Test
-    @DisplayName("A same customer cannot reserve a ticket for an event that has no more seats")
+    @DisplayName("Um mesmo cliente não pode comprar de um evento que não há mais cadeiras")
     public void testReserveTicketWithoutSlots() throws Exception {
         // given
         final var expectedError = "Event sold out";

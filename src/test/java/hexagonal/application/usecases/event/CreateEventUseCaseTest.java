@@ -1,11 +1,10 @@
-package hexagonal.demo.application.usecases.event;
+package hexagonal.application.usecases.event;
 
-import hexagonal.demo.repositories.InMemoryEventRepository;
-import hexagonal.demo.repositories.InMemoryPartnerRepository;
-import hexagonal.demo.models.Partner;
-import hexagonal.demo.models.PartnerId;
-import hexagonal.demo.application.usecases.exceptions.ValidationException;
-import hexagonal.demo.application.usecases.event.CreateEventUseCase;
+import hexagonal.application.domain.partner.Partner;
+import hexagonal.application.domain.partner.PartnerId;
+import hexagonal.application.exceptions.ValidationException;
+import hexagonal.application.repository.InMemoryEventRepository;
+import hexagonal.application.repository.InMemoryPartnerRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -13,7 +12,7 @@ import org.junit.jupiter.api.Test;
 class CreateEventUseCaseTest {
 
     @Test
-    @DisplayName("Must create an event")
+    @DisplayName("Deve criar um evento")
     public void testCreate() throws Exception {
         // given
         final var aPartner =
@@ -44,7 +43,7 @@ class CreateEventUseCaseTest {
     }
 
     @Test
-    @DisplayName("You should not create an event when the partner does not exist")
+    @DisplayName("Não deve criar um evento quando o Partner não for encontrado")
     public void testCreateEvent_whenPartnerDoesntExists_ShouldThrowError() throws Exception {
         // given
         final var expectedDate = "2021-01-01";

@@ -1,9 +1,8 @@
-package hexagonal.demo.application.usecases.partner;
+package hexagonal.application.usecases.partner;
 
-import hexagonal.demo.repositories.InMemoryPartnerRepository;
-import hexagonal.demo.models.Partner;
-import hexagonal.demo.application.usecases.exceptions.ValidationException;
-import hexagonal.demo.application.usecases.partner.CreatePartnerUseCase;
+import hexagonal.application.domain.partner.Partner;
+import hexagonal.application.exceptions.ValidationException;
+import hexagonal.application.repository.InMemoryPartnerRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,7 +10,7 @@ import org.junit.jupiter.api.Test;
 public class CreatePartnerUseCaseTest {
 
     @Test
-    @DisplayName("Must create a partner")
+    @DisplayName("Deve criar um parceiro")
     public void testCreatePartner() {
         // given
         final var expectedCNPJ = "41.536.538/0001-00";
@@ -33,7 +32,7 @@ public class CreatePartnerUseCaseTest {
     }
 
     @Test
-        @DisplayName("You should not create a partner with a duplicate CNPJ")
+    @DisplayName("Não deve cadastrar um parceiro com CNPJ duplicado")
     public void testCreateWithDuplicatedCNPJShouldFail() throws Exception {
         // given
         final var expectedCNPJ = "41.536.538/0001-00";
@@ -57,7 +56,7 @@ public class CreatePartnerUseCaseTest {
     }
 
     @Test
-    @DisplayName("You should not create a partner with a duplicate email")
+    @DisplayName("Não deve cadastrar um parceiro com e-mail duplicado")
     public void testCreateWithDuplicatedEmailShouldFail() throws Exception {
         // given
         final var expectedCNPJ = "41.536.538/0001-00";
