@@ -3,7 +3,7 @@ package hexagonal.infrastructure.rest;
 import hexagonal.application.usecases.customer.CreateCustomerUseCase;
 import hexagonal.application.usecases.customer.GetCustomerByIdUseCase;
 import hexagonal.infrastructure.dtos.NewCustomerDTO;
-import hexagonal.infrastructure.jpa.repositories.CustomerJpaRepository;
+import hexagonal.infrastructure.db.repositories.CustomerJpaRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

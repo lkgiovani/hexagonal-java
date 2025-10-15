@@ -3,8 +3,8 @@ package hexagonal.infrastructure.repositories;
 import hexagonal.application.domain.event.ticket.Ticket;
 import hexagonal.application.domain.event.ticket.TicketId;
 import hexagonal.application.repositories.TicketRepository;
-import hexagonal.infrastructure.jpa.entities.TicketEntity;
-import hexagonal.infrastructure.jpa.repositories.TicketJpaRepository;
+import hexagonal.infrastructure.db.entities.TicketEntity;
+import hexagonal.infrastructure.db.repositories.TicketJpaRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 

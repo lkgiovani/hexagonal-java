@@ -1,4 +1,4 @@
-package hexagonal.infrastructure.jpa.entities;
+package hexagonal.infrastructure.db.entities;
 
 import hexagonal.application.domain.customer.CustomerId;
 import hexagonal.application.domain.event.EventId;

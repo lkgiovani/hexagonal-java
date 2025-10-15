@@ -1,6 +1,6 @@
-package hexagonal.infrastructure.jpa.repositories;
+package hexagonal.infrastructure.db.repositories;
 
-import hexagonal.infrastructure.jpa.entities.EventEntity;
+import hexagonal.infrastructure.db.entities.EventEntity;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.UUID;

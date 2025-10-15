@@ -3,8 +3,8 @@ package hexagonal.infrastructure.repositories;
 import hexagonal.application.domain.event.Event;
 import hexagonal.application.domain.event.EventId;
 import hexagonal.application.repositories.EventRepository;
-import hexagonal.infrastructure.jpa.entities.EventEntity;
-import hexagonal.infrastructure.jpa.repositories.EventJpaRepository;
+import hexagonal.infrastructure.db.entities.EventEntity;
+import hexagonal.infrastructure.db.repositories.EventJpaRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 

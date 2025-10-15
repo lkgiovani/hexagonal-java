@@ -5,8 +5,8 @@ import hexagonal.application.domain.partner.PartnerId;
 import hexagonal.application.domain.person.Cnpj;
 import hexagonal.application.domain.person.Email;
 import hexagonal.application.repositories.PartnerRepository;
-import hexagonal.infrastructure.jpa.entities.PartnerEntity;
-import hexagonal.infrastructure.jpa.repositories.PartnerJpaRepository;
+import hexagonal.infrastructure.db.entities.PartnerEntity;
+import hexagonal.infrastructure.db.repositories.PartnerJpaRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 

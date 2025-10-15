@@ -5,8 +5,8 @@ import hexagonal.application.domain.customer.CustomerId;
 import hexagonal.application.domain.person.Cpf;
 import hexagonal.application.domain.person.Email;
 import hexagonal.application.repositories.CustomerRepository;
-import hexagonal.infrastructure.jpa.entities.CustomerEntity;
-import hexagonal.infrastructure.jpa.repositories.CustomerJpaRepository;
+import hexagonal.infrastructure.db.entities.CustomerEntity;
+import hexagonal.infrastructure.db.repositories.CustomerJpaRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
